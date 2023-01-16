@@ -19,7 +19,8 @@ const singleProduct = async (req, res) => {
 const addProduct = async (req, res) => {
     const { title, price, description } = req.body
     try {
-        const product = await Product.create({ title, price, description, image:'wdqq' })
+        let slug = title.split(' ').join('').toLowerCase()
+        const product = await Product.create({ title,slug, price, description, image:'wdqq' })
         res.status(200).json(product)
     } catch (error) {
         res.status(400).json({ error: error.message })

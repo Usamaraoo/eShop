@@ -16,8 +16,9 @@ export default function ProductsPage() {
                 setProducts(res.data)
             }
         }
+    console.log('render all products');
         getAllProducts()
-    }, [products])
+    }, [])
     return (
         <div>
             <h1 className='text-xl font-bold'>Featured</h1>
