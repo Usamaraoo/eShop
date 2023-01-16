@@ -13,14 +13,13 @@ const allProducts = async (req, res) => {
 // get single Product
 const singleProduct = async (req, res) => {
     try {
-        const {id} = req.params
-        const product = await Product.findById(id)
+        const {slug} = req.params
+        const product = await Product.findOne({slug})
         res.status(200).json(product)
         
     } catch (error) {
         res.status(400).json({error:error.message})
     }
-    res.status(200).json({ msg: 'Single Product' })
 }
 
 // add new product

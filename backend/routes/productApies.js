@@ -7,7 +7,7 @@ const {
 const router = express.Router()
 
 router.get('/', allProducts)
-router.get('/:id', singleProduct)
+router.get('/:slug', singleProduct)
 router.post('/', addProduct)
 
 module.exports = router
