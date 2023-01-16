@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import { useState } from 'react'
+// Components
+import Loading from './Loading'
 
 export default function ProductDetail() {
     const { slug } = useParams()
@@ -38,7 +40,7 @@ export default function ProductDetail() {
                     </div>
                 </div>
             ) : (
-                <p className='text-3xl mt-20 font-bold'>Loading....</p>
+               <Loading/>
             )}
         </div>
     )
