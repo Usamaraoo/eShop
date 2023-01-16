@@ -13,7 +13,7 @@ function App() {
             <Nabvar />
                 <Routes>
                     <Route path='/' element={<ProductsPage />} />
-                    <Route path='/:title' element={<ProductDetail />} />
+                    <Route path='/:slug' element={<ProductDetail />} />
                     <Route path='/addProduct' element={<AddProduct />} />
                 </Routes>
             </Router>

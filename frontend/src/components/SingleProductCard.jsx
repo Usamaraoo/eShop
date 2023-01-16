@@ -1,9 +1,8 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-export default function SingleProductCard({ image, price, title }) {
-
+export default function SingleProductCard({ image, price, title, slug }) {
     return (
-        <Link to={'/dw'} className='w-72 h-90 bg-gray-300 p-2 rounded  '>
+        <Link to={`/${slug}`} className='w-72 h-90 bg-gray-300 p-2 rounded  '>
             <img className='min-w-full h-72 object-contain' src={image} alt={title} />
             <div>
                 <p className=' tracking-titles text-gray-500'>{title}</p>
