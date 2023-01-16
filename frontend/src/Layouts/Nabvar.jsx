@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import {BsHandbagFill} from 'react-icons/bs'
+
 export default function Nabvar() {
     return (
         <nav className='bg-black p-5 text-white'>
@@ -10,9 +12,8 @@ export default function Nabvar() {
                 {/* Links */}
                 <div className='flex gap-4  text-xl'>
                     <Link to='/'>Home</Link>
-                    <a href='/'>Product</a>
-                    <a href='/'>SignIn</a>
                     <Link to='/addProduct'>Add Product</Link>
+                    <BsHandbagFill/>
                 </div>
             </div>
         </nav>
