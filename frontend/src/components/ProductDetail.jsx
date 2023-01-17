@@ -22,12 +22,13 @@ export default function ProductDetail() {
     return (
         <div>
             {currentItem ? (
-                <div className='flex justify-between'>
+                <div className='flex justify-between shadow-md'>
                     <img
                         src='http://obest.org/html/shopo/assets/images/products/single/product1.jpg'
-                        alt=''
+                        alt={currentItem.title}
+                        className=''
                     />
-                    <div className='mt-20'>
+                    <div className='px-10 py-10 flex-grow border'>
                         <h1 className='text-3xl font-bold '>{currentItem.title}</h1>
                         <p className='text-2xl text-orange-600 font-bold'>
                             {currentItem.price} $
@@ -37,10 +38,16 @@ export default function ProductDetail() {
                             <p className='font-bold text-xl'>Availability</p>
                             <span className='text-orange-600'>In stock</span>
                         </div>
+                        {/* add to cart  */}
+                        <div className='mt-5'>
+                            <button className='bg-yellow-400 px-10 py-5 text-xl  rounded-md '>
+                                Add to cart
+                            </button>
+                        </div>
                     </div>
                 </div>
             ) : (
-               <Loading/>
+                <Loading />
             )}
         </div>
     )
