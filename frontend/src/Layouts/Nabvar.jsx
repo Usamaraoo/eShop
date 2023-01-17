@@ -15,11 +15,12 @@ export default function Nabvar() {
                     </Link>
                 </div>
                 {/* Links */}
-                <div className='flex gap-4  text-xl'>
+                <div className='flex gap-4  text-xl '>
                     <Link to='/'>Home</Link>
                     <Link to='/addProduct'>Add Product</Link>
-                    <Link to='/cart'>
-                        <BsHandbagFill />
+                    <Link  className='relative' to='/cart'>
+                        <span className='absolute font-bold -right-2 text-yellow-400 -top-2 z-10'>0</span>
+                        <BsHandbagFill size={25}/>
                     </Link>
                 </div>
             </div>
