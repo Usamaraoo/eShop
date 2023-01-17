@@ -4,9 +4,13 @@ import axios from 'axios'
 import { useState } from 'react'
 // Components
 import Loading from './Loading'
+// redux
+import { useDispatch } from 'react-redux'
+import { addItemToCart } from '../features/cart/cartSlice'
 
 export default function ProductDetail() {
     const { slug } = useParams()
+    const dispatch = useDispatch()
     const [currentItem, setCurrentItem] = useState(null)
     useEffect(() => {
         const getSingleProd = async () => {
@@ -40,7 +44,10 @@ export default function ProductDetail() {
                         </div>
                         {/* add to cart  */}
                         <div className='mt-5'>
-                            <button className='bg-yellow-400 px-10 py-5 text-xl  rounded-md '>
+                            <button
+                                onClick={() => dispatch(addItemToCart())}
+                                className='bg-yellow-400 px-10 py-5 text-xl  rounded-md '
+                            >
                                 Add to cart
                             </button>
                         </div>

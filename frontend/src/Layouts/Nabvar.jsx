@@ -3,8 +3,7 @@ import { BsHandbagFill } from 'react-icons/bs'
 // redux imports
 import { useSelector ,useDispatch} from 'react-redux'
 export default function Nabvar() {
-    const { amount } = useSelector((store) => store.cart)
-    console.log(amount, 'amount')
+    const { total } = useSelector((store) => store.cart)
     return (
         <nav className='bg-black p-5 text-white'>
             <div className='flex justify-between'>
@@ -19,7 +18,7 @@ export default function Nabvar() {
                     <Link to='/'>Home</Link>
                     <Link to='/addProduct'>Add Product</Link>
                     <Link  className='relative' to='/cart'>
-                        <span className='absolute font-bold -right-2 text-yellow-400 -top-2 z-10'>0</span>
+                        <span className='absolute text-sm font-bold -right-2 text-yellow-400 -top-2 z-10'>{total}</span>
                         <BsHandbagFill size={25}/>
                     </Link>
                 </div>
