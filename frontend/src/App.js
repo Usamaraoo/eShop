@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 // Components
 import ProductDetail from './components/ProductDetail'
 import AddProduct from './components/AddProduct'
+import Cart from './components/Cart'
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                     <Route path='/' element={<ProductsPage />} />
                     <Route path='/:slug' element={<ProductDetail />} />
                     <Route path='/addProduct' element={<AddProduct />} />
+                    <Route path='/cart' element={<Cart />} />
                 </Routes>
             </Router>
         </div>
