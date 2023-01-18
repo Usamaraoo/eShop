@@ -45,7 +45,16 @@ export default function ProductDetail() {
                         {/* add to cart  */}
                         <div className='mt-5'>
                             <button
-                                onClick={() => dispatch(addItemToCart())}
+                                onClick={() =>
+                                    dispatch(
+                                        addItemToCart({
+                                            image: currentItem.image,
+                                            title: currentItem.title,
+                                            slug: currentItem.slug,
+                                            price: currentItem.price,
+                                        })
+                                    )
+                                }
                                 className='bg-yellow-400 px-10 py-5 text-xl  rounded-md '
                             >
                                 Add to cart
