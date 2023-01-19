@@ -2,10 +2,28 @@
 import { useSelector, useDispatch } from 'react-redux'
 import { clearCart, updateItemQuantity, removeItem } from '../features/cart/cartSlice'
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io'
+import axios from 'axios'
 
 export default function Cart() {
     const dispatch = useDispatch()
     const { amount, cartItems } = useSelector((store) => store.cart)
+    const checkoutFun = async () => {
+        try {
+            const res = await axios.post(
+                `${process.env.REACT_APP_BackendBaseUrl}/api/payment/create-checkout-session`,
+                {
+                    items: cartItems,
+                    quantity: cartItems.map((item) => item.quantity),
+                }
+            )
+            if (res.status === 200) {
+                window.location = res.data.url
+                // console.log(res.data.url)
+            }
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
     return (
         <div className='w-4/5 m-auto '>
             <div className='border mt-10 shadow-xl p-4 '>
@@ -66,7 +84,11 @@ export default function Cart() {
                                     </div>
                                     <p className='text-xl  '>{price} $</p>
                                     <button
-                                        onClick={() => dispatch(removeItem({ slug,quantity,price }))}
+                                        onClick={() =>
+                                            dispatch(
+                                                removeItem({ slug, quantity, price })
+                                            )
+                                        }
                                         className='bg-red-400 mx-10'
                                     >
                                         Remove
@@ -84,7 +106,16 @@ export default function Cart() {
                     </button>
                     <div></div>
                     <div></div>
-                    <p className='text-2xl font-bold'>{amount} $</p>
+                    <div>
+                        <p className='text-2xl font-bold'>{amount} $</p>
+                        <p className='text-2xl font-bold'>{amount} $</p>
+                        <button
+                            onClick={() => checkoutFun()}
+                            className='bg-green-400 px-4 py-1'
+                        >
+                            Checkout
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
