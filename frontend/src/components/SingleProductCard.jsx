@@ -25,7 +25,7 @@ export default function SingleProductCard({ image, price, title, slug }) {
                         onClick={() =>
                             dispatch(addItemToCart({ image, price, title, slug }))
                         }
-                        className='bg-yellow-400 px-4 py-1 rounded-md text-md'
+                        className='bg-yellow-400 px-4 py-1 text-sm rounded-md text-md'
                     >
                         To Cart
                     </button>

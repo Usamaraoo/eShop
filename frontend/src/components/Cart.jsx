@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { clearCart, updateItemQuantity, removeItem } from '../features/cart/cartSlice'
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io'
 import { ImCross } from 'react-icons/im'
+import { FaLongArrowAltRight } from 'react-icons/fa'
 
 import axios from 'axios'
 
@@ -87,7 +88,10 @@ export default function Cart() {
                                                 />
                                             </div>
                                         </div>
-                                        <p className='text-xl  '>{price} $</p>
+                                        <p className='text-xl  '>
+                                            {price}{' '}
+                                            <span className='text-xs font-bold'>$</span>{' '}
+                                        </p>
                                         <div>
                                             {/* <button
                                             onClick={() =>
@@ -117,10 +121,10 @@ export default function Cart() {
                                 )
                             })}
                     </div>
-                    <div className='grid grid-cols-5  mt-5'>
+                    <div className='grid grid-cols-5  mt-5 items-center'>
                         <div>
                             <button
-                                className='px-4 py-1 rounded-md bg-yellow-400'
+                                className='px-4 py-1 rounded-md bg-yellow-400  text-sm '
                                 onClick={() => dispatch(clearCart())}
                             >
                                 Clear cart
@@ -134,9 +138,10 @@ export default function Cart() {
                         <div>
                             <button
                                 onClick={() => checkoutFun()}
-                                className='bg-green-400 px-4 py-1 rounded-md'
+                                className='bg-green-400 px-4 py-1 text-sm rounded-md flex items-center gap-1'
                             >
                                 Checkout
+                                <FaLongArrowAltRight />
                             </button>
                         </div>
                     </div>
