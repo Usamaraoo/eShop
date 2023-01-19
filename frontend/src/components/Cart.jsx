@@ -29,7 +29,7 @@ export default function Cart() {
     return (
         <div className='w-4/5 m-auto '>
             {cartItems.length > 0 ? (
-                <div className='border mt-10 shadow-xl p-4 '>
+                <div className='border mt-10 shadow-xl p-4  rounded-xl'>
                     <div>
                         <h1 className=' text-3xl py-3 font-medium tracking-widest'>
                             Cart
@@ -142,7 +142,7 @@ export default function Cart() {
                     </div>
                 </div>
             ) : (
-                <div className='border mt-10 shadow-xl p-4 '>
+                <div className='border mt-10 shadow-xl p-4  '>
                     <p className='text-center text-2xl text-md'>Empty cart</p>
                 </div>
             )}

@@ -22,7 +22,7 @@ export default function ProductsPage() {
     }, [])
     return (
         <div>
-            <h1 className='text-xl font-bold'>Featured</h1>
+            <h1 className='text-xl font-bold mt-5'>Featured</h1>
             {/* Product list */}
             {products ? (
                 <div className='flex gap-10'>

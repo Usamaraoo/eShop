@@ -1,16 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [
-      "./src/**/*.{js,jsx,ts,tsx}",
-    ],
+    content: ['./src/**/*.{js,jsx,ts,tsx}'],
     theme: {
-      extend: {},
-      letterSpacing: {
-       titles: '.20em',
-       prices: '.15em',
-        logo: '.50em',
-
-       }
+        extend: {},
+        letterSpacing: {
+            titles: '.10em',
+            prices: '.10em',
+            logo: '.50em',
+        },
     },
     plugins: [],
-  }
+}

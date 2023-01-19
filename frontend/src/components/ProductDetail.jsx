@@ -26,18 +26,19 @@ export default function ProductDetail() {
     return (
         <div>
             {currentItem ? (
-                <div className='flex justify-between shadow-md'>
+                <div className='flex justify-between '>
                     <img
                         src='http://obest.org/html/shopo/assets/images/products/single/product1.jpg'
                         alt={currentItem.title}
-                        className=''
+                        className='max-w-xs'
                     />
-                    <div className='px-10 py-10 flex-grow border'>
-                        <h1 className='text-3xl font-bold '>{currentItem.title}</h1>
-                        <p className='text-2xl text-orange-600 font-bold'>
-                            {currentItem.price} $
+                    <div className='px-10 py-10 flex-grow border-l'>
+                        <h1 className='text-3xl font-medium '>{currentItem.title}</h1>
+                        <p className='text-xl  font-bold'>
+                            Price :{' '}
+                            <span className='text-orange-600'>{currentItem.price} $</span>
                         </p>
-                        <p className='text-xl text-gray-600'>{currentItem.description}</p>
+                        <p className=' text-gray-600'>{currentItem.description}</p>
                         <div className='flex gap-4 mt-4'>
                             <p className='font-bold text-xl'>Availability</p>
                             <span className='text-orange-600'>In stock</span>
@@ -55,7 +56,7 @@ export default function ProductDetail() {
                                         })
                                     )
                                 }
-                                className='bg-yellow-400 px-10 py-5 text-xl  rounded-md '
+                                className='bg-yellow-400 px-4 py-1   rounded-md '
                             >
                                 Add to cart
                             </button>
