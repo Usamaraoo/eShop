@@ -7,6 +7,7 @@ module.exports = {
             titles: '.10em',
             prices: '.10em',
             logo: '.50em',
+            category: '.20em',
         },
     },
     plugins: [],
