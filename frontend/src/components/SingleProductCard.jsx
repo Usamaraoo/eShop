@@ -6,7 +6,7 @@ import { addItemToCart } from '../features/cart/cartSlice'
 export default function SingleProductCard({ image, price, title, slug }) {
     const dispatch = useDispatch()
     return (
-        <div className='w-52 h-70 mt-5 bg-yellow-50 p-2 rounded shadow-xl  '>
+        <div className='w-52 h-70  bg-yellow-50 p-2 rounded shadow-xl  '>
             <Link to={`/${slug}`}>
                 <img
                     to={`/${slug}`}

@@ -25,7 +25,7 @@ export default function ProductDetail() {
         getSingleProd()
     }, [])
     return (
-        <div className='mt-20'> 
+        <div className='mt-20 h-screen'> 
             {currentItem ? (
                 <div className='flex justify-between '>
                     <img

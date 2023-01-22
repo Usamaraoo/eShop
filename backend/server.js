@@ -8,7 +8,6 @@ const usersApi = require('./routes/userApi')
 const productApies = require('./routes/productApies')
 const payment = require('./routes/payment')
 
-
 const app = express()
 
 // middleware

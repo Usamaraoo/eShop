@@ -6,18 +6,20 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import ProductDetail from './components/ProductDetail'
 import AddProduct from './components/AddProduct'
 import Cart from './components/Cart'
+import Footer from './Layouts/Footer'
 
 function App() {
     return (
-        <div className='w-4/5 m-auto '>
+        <div className='w-4/5 m-auto  '>
             <Router>
-            <Nabvar />
+                <Nabvar />
                 <Routes>
                     <Route path='/' element={<ProductsPage />} />
                     <Route path='/:slug' element={<ProductDetail />} />
                     <Route path='/addProduct' element={<AddProduct />} />
                     <Route path='/cart' element={<Cart />} />
                 </Routes>
+                <Footer />
             </Router>
         </div>
     )
