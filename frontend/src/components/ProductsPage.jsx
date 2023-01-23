@@ -13,7 +13,7 @@ export default function ProductsPage() {
     const { products, isLoading } = useSelector((store) => store.products)
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(getProducts())
+        dispatch(getProducts('testParam'))
         console.log('render all products')
     }, [])
     return (
