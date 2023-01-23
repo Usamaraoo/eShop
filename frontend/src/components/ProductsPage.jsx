@@ -1,6 +1,4 @@
-import { useState } from 'react'
 import { useEffect } from 'react'
-import axios from 'axios'
 // reducer
 import { useSelector, useDispatch } from 'react-redux'
 import { getProducts } from '../features/products/productSlice'

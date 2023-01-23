@@ -1,9 +1,10 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk, current } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 // initial state
 const initialState = {
     products: [],
+    allProducts: [],
     isLoading: true,
 }
 export const getProducts = createAsyncThunk(
@@ -31,9 +32,13 @@ const productSlice = createSlice({
     initialState,
     reducers: {
         filterByCategories: (state, { payload }) => {
-            state.products = state.products.filter((product) =>
-                product.categories.includes(payload)
-            )
+            if (payload === 'all') {
+                state.products = state.allProducts
+            } else {
+                state.products = state.allProducts.filter((product) =>
+                    product.category.includes(payload)
+                )
+            }
         },
     },
     extraReducers: {
@@ -43,6 +48,7 @@ const productSlice = createSlice({
         [getProducts.fulfilled]: (state, action) => {
             state.isLoading = false
             state.products = action.payload
+            state.allProducts = action.payload
         },
         [getProducts.rejected]: (state, action) => {
             state.isLoading = true
@@ -51,5 +57,7 @@ const productSlice = createSlice({
         },
     },
 })
+
+export const { filterByCategories } = productSlice.actions
 
 export default productSlice.reducer
