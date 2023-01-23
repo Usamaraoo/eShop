@@ -45,7 +45,7 @@ export default function Cart() {
                         <hr />
                         {cartItems &&
                             cartItems.map((item, index) => {
-                                const { image, title, price, quantity, slug } = item
+                                const { title, price, quantity, slug } = item
                                 return (
                                     <div
                                         className='grid grid-cols-5 items-center border-b-2'

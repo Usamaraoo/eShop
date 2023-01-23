@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function () {
+export default function Footer() {
     return (
         <footer class=' p-4 bg-black text-white'>
             <div className='flex justify-between'>

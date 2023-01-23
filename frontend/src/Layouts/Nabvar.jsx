@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { BsHandbagFill } from 'react-icons/bs'
 // redux imports
-import { useSelector ,useDispatch} from 'react-redux'
+import { useSelector } from 'react-redux'
 export default function Nabvar() {
     const { total } = useSelector((store) => store.cart)
     return (

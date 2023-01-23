@@ -20,7 +20,7 @@ const cartSlice = createSlice({
         addItemToCart: (state, { payload }) => {
             let add = true
             // checking if item aleady exists in the cart
-            state.cartItems.map((item) => {
+            state.cartItems.forEach((item) => {
                 // if exits than just update the quantity
                 if (item.title === payload.title) {
                     add = false
@@ -46,7 +46,7 @@ const cartSlice = createSlice({
         },
         updateItemQuantity: (state, actions) => {
             const { quantity, title } = actions.payload
-            state.cartItems.map((item) => {
+            state.cartItems.forEach((item) => {
                 if (item.title === title) {
                     // checking quantity should not be 0 and more than 5
                     if (item.quantity + quantity >= 1 && item.quantity + quantity <= 5) {

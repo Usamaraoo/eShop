@@ -23,7 +23,7 @@ export default function ProductDetail() {
             }
         }
         getSingleProd()
-    }, [])
+    }, [slug])
     return (
         <div className='mt-20 h-screen'> 
             {currentItem ? (
