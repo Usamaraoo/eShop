@@ -25,16 +25,14 @@ export default function ProductsPage() {
                     <div className='flex gap-10'>
                         {/* Loop through products */}
                         {products.map((singleProduct) => {
-                            const { _id, title, slug, price } = singleProduct
+                            const { _id, title,image, slug, price } = singleProduct
                             return (
                                 <SingleProductCard
                                     key={_id}
                                     title={title}
                                     price={price}
                                     slug={slug}
-                                    image={
-                                        'http://obest.org/html/shopo/assets/images/products/single/product1.jpg'
-                                    }
+                                    image={image}
                                 />
                             )
                         })}
