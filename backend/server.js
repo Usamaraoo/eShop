@@ -7,6 +7,7 @@ require('dotenv').config()
 const usersApi = require('./routes/userApi')
 const productApies = require('./routes/productApies')
 const payment = require('./routes/payment')
+const categories = require('./routes/categories')
 
 const app = express()
 
@@ -16,6 +17,7 @@ app.use(cors())
 
 app.use('/api/users', usersApi)
 app.use('/api/products', productApies)
+app.use('/api/categories', categories)
 // Payment
 app.use('/api/payment', payment)
 // connect to db
