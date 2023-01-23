@@ -1,25 +1,20 @@
 import { useState } from 'react'
 import { useEffect } from 'react'
 import axios from 'axios'
+// reducer
+import { useSelector, useDispatch } from 'react-redux'
+import { getProducts } from '../features/products/productSlice'
 // Local components
 import SingleProductCard from './SingleProductCard'
 import Categories from './Categories'
 import Loading from './Loading'
 
 export default function ProductsPage() {
-    const [products, setProducts] = useState(null)
+    const { products, isLoading } = useSelector((store) => store.products)
+    const dispatch = useDispatch()
     useEffect(() => {
-        const getAllProducts = async () => {
-            // const res = await axios.get('/api/products')
-            const res = await axios.get(
-                `${process.env.REACT_APP_BackendBaseUrl}/api/products`
-            )
-            if (res.status === 200) {
-                setProducts(res.data)
-            }
-        }
+        dispatch(getProducts())
         console.log('render all products')
-        getAllProducts()
     }, [])
     return (
         <div className='h-screen '>
@@ -28,24 +23,23 @@ export default function ProductsPage() {
                 {/* Product categories */}
                 <Categories />
                 {/* Product list */}
-                {products ? (
+                {!isLoading ? (
                     <div className='flex gap-10'>
                         {/* Loop through products */}
-                        {products &&
-                            products.map((singleProduct) => {
-                                const { _id, title, slug, price } = singleProduct
-                                return (
-                                    <SingleProductCard
-                                        key={_id}
-                                        title={title}
-                                        price={price}
-                                        slug={slug}
-                                        image={
-                                            'http://obest.org/html/shopo/assets/images/products/single/product1.jpg'
-                                        }
-                                    />
-                                )
-                            })}
+                        {products.map((singleProduct) => {
+                            const { _id, title, slug, price } = singleProduct
+                            return (
+                                <SingleProductCard
+                                    key={_id}
+                                    title={title}
+                                    price={price}
+                                    slug={slug}
+                                    image={
+                                        'http://obest.org/html/shopo/assets/images/products/single/product1.jpg'
+                                    }
+                                />
+                            )
+                        })}
                     </div>
                 ) : (
                     <Loading />

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function Footer() {
     return (
-        <footer class=' p-4 bg-black text-white'>
+        <footer className=' p-4 bg-black text-white'>
             <div className='flex justify-between'>
                 <Link to='/' className='tracking-widest text-2xl text-bold'>
                     eShop
