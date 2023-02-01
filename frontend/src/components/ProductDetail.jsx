@@ -31,7 +31,7 @@ export default function ProductDetail() {
                     <img
                         src={currentItem.image}
                         alt={currentItem.title}
-                        className='max-w-xs'
+                        className='max-w-xs w-94 h-94 object-contain'
                     />
                     <div className='px-10 py-10 flex-grow border-l'>
                         <div className='flex justify-between'>

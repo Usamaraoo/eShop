@@ -35,7 +35,7 @@ export default function Cart() {
                         <h1 className=' text-3xl py-3 font-medium tracking-widest'>
                             Cart
                         </h1>
-                        <div className='grid grid-cols-5 text-xl text-gray-500 font-bold'>
+                        <div className='grid grid-cols-5 text-xl text-gray-500 font-bold mb-4'>
                             <div>Image</div>
                             <div>Title</div>
                             <div>Quantity</div>
@@ -48,11 +48,11 @@ export default function Cart() {
                                 const { title, price,image, quantity, slug } = item
                                 return (
                                     <div
-                                        className='grid grid-cols-5 items-center border-b-2'
+                                        className='grid grid-cols-5 items-center border-b-2 mb-4'
                                         key={index}
                                     >
                                         <img
-                                            className='w-24'
+                                            className='w-24 h-24 object-cover'
                                             src={image}
                                             alt={title}
                                         />

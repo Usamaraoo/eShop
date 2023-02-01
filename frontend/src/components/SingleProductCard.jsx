@@ -6,20 +6,20 @@ import { addItemToCart } from '../features/cart/cartSlice'
 export default function SingleProductCard({ image, price, title, slug }) {
     const dispatch = useDispatch()
     return (
-        <div className='w-52 h-70  bg-yellow-50 p-2 rounded shadow-xl  '>
+        <div className='w-52 h-70  bg-yellow-50  rounded shadow-xl overflow-hidden '>
             <Link to={`/${slug}`}>
                 <img
                     to={`/${slug}`}
-                    className='min-w-full object-contain'
+                    className='w-52 h-52 object-cover ' 
                     src={image}
                     alt={title}
                 />
             </Link>
-            <div>
+            <div className='p-2'>
                 <p className=' tracking-titles text-gray-700 my-2'>{`${
                     title.length > 12 ? title.slice(0, 14) + '...' : title
                 }`}</p>
-                <div className='flex justify-between items-center '>
+                <div className='flex justify-between items-center  '>
                     <p className='font-bold tracking-prices'>{price} $</p>
                     <button
                         onClick={() =>
