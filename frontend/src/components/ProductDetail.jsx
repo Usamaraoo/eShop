@@ -29,7 +29,7 @@ export default function ProductDetail() {
             {currentItem ? (
                 <div className='flex justify-between '>
                     <img
-                        src='http://obest.org/html/shopo/assets/images/products/single/product1.jpg'
+                        src={currentItem.image}
                         alt={currentItem.title}
                         className='max-w-xs'
                     />

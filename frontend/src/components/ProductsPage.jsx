@@ -22,7 +22,7 @@ export default function ProductsPage() {
                 <Categories />
                 {/* Product list */}
                 {!isLoading ? (
-                    <div className='flex gap-10'>
+                    <div className='flex gap-10 flex-wrap'>
                         {/* Loop through products */}
                         {products.map((singleProduct) => {
                             const { _id, title,image, slug, price } = singleProduct

@@ -45,7 +45,7 @@ export default function Cart() {
                         <hr />
                         {cartItems &&
                             cartItems.map((item, index) => {
-                                const { title, price, quantity, slug } = item
+                                const { title, price,image, quantity, slug } = item
                                 return (
                                     <div
                                         className='grid grid-cols-5 items-center border-b-2'
@@ -53,9 +53,7 @@ export default function Cart() {
                                     >
                                         <img
                                             className='w-24'
-                                            src={
-                                                'http://obest.org/html/shopo/assets/images/products/single/product1.jpg'
-                                            }
+                                            src={image}
                                             alt={title}
                                         />
                                         <p className='text-xl  font-medium'>{title}</p>

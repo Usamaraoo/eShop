@@ -26,6 +26,19 @@ export const getProducts = createAsyncThunk(
         }
     }
 )
+export const addProduct = createAsyncThunk(
+'/products/add', async (product,thunkAPI)=>{
+    try {
+         const res = await axios.post(
+            `${process.env.REACT_APP_BackendBaseUrl}/api/products`,
+            { ...product })
+        return res.data
+
+    } catch (error) {
+        return thunkAPI.rejectWithValue('something went wrong')
+    }
+}
+)
 
 const productSlice = createSlice({
     name: 'products',
@@ -55,6 +68,18 @@ const productSlice = createSlice({
             // getting error on fail
             console.log(action.payload)
         },
+        [addProduct.pending]:(state)=>{
+            state.isLoading= true
+        },
+        [addProduct.fulfilled]:(state)=>{
+            // do something on fulfilled
+            state.isLoading = false
+            alert('Product added')
+        },
+        [addProduct.rejected]:(state)=>{
+            state.isLoading = false
+            
+        }
     },
 })
 
