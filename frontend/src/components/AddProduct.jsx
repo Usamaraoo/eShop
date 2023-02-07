@@ -22,13 +22,13 @@ export default function AddProduct() {
     }
 
     return (
-        <div className='h-screen'>
+        <div className='h-screen font-gray-500'>
             <h1 className='font-bold text-3xl mt-10'>Add New Product</h1>
             {/* add a single product */}
             {!isLoading ? <form onSubmit={add}>
                 <div className='grid gap-6 mb-6 md:grid-cols-2 mt-10'>
                     <div>
-                        <label class='block mb-2 font-medium text-gray-900 dark:text-white'>
+                        <label class='block mb-2 font-medium text-gray-900 dark:text-white text-gray-900 dark:text-gray-400'>
                             Title
                         </label>
                         <input
@@ -42,7 +42,7 @@ export default function AddProduct() {
                         />
                     </div>
                     <div>
-                        <label class='block mb-2 font-medium text-gray-900 dark:text-white'>
+                        <label class='block mb-2 font-medium text-gray-900 dark:text-white text-gray-900 dark:text-gray-400'>
                             Price
                         </label>
                         <input
@@ -56,7 +56,7 @@ export default function AddProduct() {
                         />
                     </div>{' '}
                     <div>
-                        <label class='block mb-2 font-medium text-gray-900 dark:text-white'>
+                        <label class='block mb-2 font-medium text-gray-900 dark:text-white text-gray-900 dark:text-gray-400'>
                             Description
                         </label>
                         <textarea
