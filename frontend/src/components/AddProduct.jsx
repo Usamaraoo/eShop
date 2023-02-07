@@ -1,14 +1,15 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Loading from './Loading'
 import { useNavigate } from 'react-router-dom'
 // redux
-import { addProduct } from '../features/products/productSlice'
+import { addProduct, getCategories } from '../features/products/productSlice'
 import { useDispatch, useSelector } from 'react-redux'
 
 export default function AddProduct() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { isLoading } = useSelector((store) => store.products)
+    const { categories } = useSelector((store) => store.products)
     const [product, setProduct] = useState({ title: '', image:'', price: 0, description: '',categories:[]})
     const productChange = (e) => {
         setProduct({ ...product, [e.target.name]: e.target.value })
@@ -22,6 +23,11 @@ export default function AddProduct() {
         setProduct({ title: '',image:'', price: 0, description: '' })
         navigate('/')
     }
+    useEffect(() => {
+        console.log('ca',categories)
+        dispatch(getCategories())
+    }, [])
+    
     return (
         <div className='h-screen font-gray-500'>
             <h1 className='font-bold text-3xl mt-10'>Add New Product</h1>
@@ -43,7 +49,7 @@ export default function AddProduct() {
                         />
                     </div>
                     <div className='flex items-center  gap-2'>
-                        <div className=' w-4/5'>
+                        <div className=''>
                             <label className='block mb-2 font-medium text-gray-900 dark:text-white text-gray-900 dark:text-gray-400'>
                                 Price
                             </label>
@@ -57,15 +63,16 @@ export default function AddProduct() {
                                 required
                             />
                         </div>
-                         <div>
+                         <div className='w-4/5'>
                             <label className='block mb-2 font-medium text-gray-900 dark:text-white text-gray-900 dark:text-gray-400'>
                                 Category
                             </label>
-                            <select name='categories' onChange={(e) => productChange(e)} className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'>
-                                <option value="grapefruit">Grapefruit</option>
-                                <option value="lime">Lime</option>
-                                <option selected value="coconut">Coconut</option>
-                                <option value="mango">Mango</option>
+                            <select name='categories' onChange={(e) => productChange(e)} className='  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'>
+                                {categories && categories.map((category)=>{
+                                    return(
+                                        <option value={category.title}>{category.title}</option>
+                                    )
+                                })}
                             </select>
                         </div>
                     </div>{' '}

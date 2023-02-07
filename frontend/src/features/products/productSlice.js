@@ -4,6 +4,7 @@ import axios from 'axios'
 // initial state
 const initialState = {
     products: [],
+    categories:[],
     allProducts: [],
     isLoading: true,
 }
@@ -26,6 +27,22 @@ export const getProducts = createAsyncThunk(
         }
     }
 )
+
+export const getCategories = createAsyncThunk(
+    'products/getCategories',
+    async (param1, thunkAPI) => {
+        try {
+            console.log('cat action')
+            const res = await axios(
+                `${process.env.REACT_APP_BackendBaseUrl}/api/categories`
+            )
+            return res.data
+        } catch (error) {
+            return thunkAPI.rejectWithValue('something went wrong')
+        }
+    }
+)
+
 export const addProduct = createAsyncThunk(
 '/products/add', async (product,thunkAPI)=>{
     try {
@@ -55,6 +72,7 @@ const productSlice = createSlice({
         },
     },
     extraReducers: {
+        // Get products
         [getProducts.pending]: (state) => {
             state.isLoading = true
         },
@@ -68,6 +86,7 @@ const productSlice = createSlice({
             // getting error on fail
             console.log(action.payload)
         },
+        // Add 
         [addProduct.pending]:(state)=>{
             state.isLoading= true
         },
@@ -79,6 +98,18 @@ const productSlice = createSlice({
         [addProduct.rejected]:(state)=>{
             state.isLoading = false
             
+        },
+        //  Get Categories
+        [getCategories.pending]:(state)=>{
+            state.isLoading= true
+        },
+        [getCategories.fulfilled]:(state,action)=>{
+            // do something on fulfilled
+            state.isLoading = false
+            state.categories = action.payload
+        },
+        [getCategories.rejected]:(state)=>{
+            state.isLoading = false
         }
     },
 })
