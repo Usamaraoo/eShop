@@ -26,7 +26,7 @@ export default function ProductDetail() {
 
     }, [slug,currentItem])
     return (
-        <div className='md:mt-20 md:mt-5 mt-2 min-h-[75vh] mb-5'> 
+        <div className='md:mt-20 md:mt-5 mt-2 min-h-screen mb-5'> 
             {currentItem ? (
                 <div className='flex flex-col md:flex-row justify-between items-start  '>
                     <img
