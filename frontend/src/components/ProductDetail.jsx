@@ -66,13 +66,15 @@ export default function ProductDetail() {
                         </div>
                         <div className='flex gap-2 items-center font-medium mt-2'>
                             <div className='text-xl'>Types :</div>
-                            {currentItem.category.length > 0 && currentItem.category.map((cat)=>{
+                            {currentItem.category.length > 0 ? currentItem.category.map((cat)=>{
                                 return(
                                     <button key={cat} className='text-xs px-3 text-gray-600 py-1 bg-gray-200 rounded-xl'>
                                         {cat}
                                     </button>
                                 )
-                            }) }
+                            }): <button  className='text-xs px-3 text-gray-600 py-1 bg-gray-200 rounded-xl'>
+                            All
+                        </button> }
                         </div>
                     </div>
                 </div>
