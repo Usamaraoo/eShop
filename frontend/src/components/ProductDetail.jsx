@@ -26,13 +26,13 @@ export default function ProductDetail() {
 
     }, [slug,currentItem])
     return (
-        <div className='md:mt-20 mt-10 min-h-screen'> 
+        <div className='md:mt-20 md:mt-5 mt-2 min-h-screen mb-5'> 
             {currentItem ? (
                 <div className='flex flex-col md:flex-row justify-between items-start  '>
                     <img
                         src={currentItem.image}
                         alt={currentItem.title}
-                        className='max-w-xs md:w-94 h-94 w-4/5 object-contain md:mt-5 m-auto'
+                        className='w-5/6  h-104 md:w-3/6 object-contain md:mt-5 m-auto'
                     />
                     <div className='px-10 py-10 flex-grow border-l'>
                         <div className='flex justify-between items-start'>

@@ -15,7 +15,7 @@ export default function ProductsPage() {
         console.log('render all products')
     }, [])
     return (
-        <div className='min-h-screen px-4 md:px-0'>
+        <div className='min-h-screen px-4 md:px-0 mb-5'>
             <h1 className='text-xl font-bold mt-5 hidden md:block'>Featured</h1>
             <div className='flex mt-5 gap-2 items-start flex-col md:flex-row items-start '>
                 {/* Product categories */}

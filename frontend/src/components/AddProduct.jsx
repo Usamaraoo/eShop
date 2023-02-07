@@ -32,7 +32,7 @@ export default function AddProduct() {
     }, [])
     
     return (
-        <div className='h-screen font-gray-500'>
+        <div className='min-h-screen font-gray-500 px-5 md:px-0'>
             <h1 className='font-bold text-3xl mt-10'>Add New Product</h1>
             {/* add a single product */}
             {!isLoading ? <form onSubmit={add}>
