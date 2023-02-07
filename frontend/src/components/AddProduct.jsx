@@ -24,7 +24,10 @@ export default function AddProduct() {
         navigate('/')
     }
     useEffect(() => {
-        console.log('ca',categories)
+        // setting default cat to product on load
+        if (categories.length > 0) {
+            setProduct({ ...product, categories:categories[0].title })
+        }
         dispatch(getCategories())
     }, [])
     
@@ -70,7 +73,7 @@ export default function AddProduct() {
                             <select name='categories' onChange={(e) => productChange(e)} className='  bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'>
                                 {categories && categories.map((category)=>{
                                     return(
-                                        <option value={category.title}>{category.title}</option>
+                                        <option key={category.title} value={category.title}>{category.title}</option>
                                     )
                                 })}
                             </select>

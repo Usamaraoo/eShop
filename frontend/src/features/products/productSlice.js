@@ -32,7 +32,6 @@ export const getCategories = createAsyncThunk(
     'products/getCategories',
     async (param1, thunkAPI) => {
         try {
-            console.log('cat action')
             const res = await axios(
                 `${process.env.REACT_APP_BackendBaseUrl}/api/categories`
             )

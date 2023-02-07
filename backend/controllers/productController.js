@@ -24,10 +24,10 @@ const singleProduct = async (req, res) => {
 
 // add new product
 const addProduct = async (req, res) => {
-    const { title, price, description ,image} = req.body
+    const { title, price, description ,image,categories} = req.body
     try {
         let slug = title.split(' ').join('').toLowerCase()
-        const product = await Product.create({ title,slug, price, description, image })
+        const product = await Product.create({ title,slug, price, description, image,category:categories })
         res.status(200).json(product)
     } catch (error) {
         res.status(400).json({ error: error.message })
