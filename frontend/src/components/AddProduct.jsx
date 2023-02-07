@@ -9,10 +9,12 @@ export default function AddProduct() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const { isLoading } = useSelector((store) => store.products)
-
-    const [product, setProduct] = useState({ title: '', image:'', price: 0, description: '' })
+    const [product, setProduct] = useState({ title: '', image:'', price: 0, description: '',categories:[]})
     const productChange = (e) => {
         setProduct({ ...product, [e.target.name]: e.target.value })
+        if (e.target.name === 'categories') {
+            setProduct({ ...product, [e.target.name]:[ e.target.value] })
+        }
     }
     const add =  (e) => {
         e.preventDefault()
@@ -20,7 +22,6 @@ export default function AddProduct() {
         setProduct({ title: '',image:'', price: 0, description: '' })
         navigate('/')
     }
-
     return (
         <div className='h-screen font-gray-500'>
             <h1 className='font-bold text-3xl mt-10'>Add New Product</h1>
@@ -28,7 +29,7 @@ export default function AddProduct() {
             {!isLoading ? <form onSubmit={add}>
                 <div className='grid gap-6 mb-6 md:grid-cols-2 mt-10'>
                     <div>
-                        <label class='block mb-2 font-medium text-gray-900 dark:text-white text-gray-900 dark:text-gray-400'>
+                        <label className='block mb-2 font-medium text-gray-900 dark:text-white text-gray-900 dark:text-gray-400'>
                             Title
                         </label>
                         <input
@@ -41,22 +42,35 @@ export default function AddProduct() {
                             required
                         />
                     </div>
-                    <div>
-                        <label class='block mb-2 font-medium text-gray-900 dark:text-white text-gray-900 dark:text-gray-400'>
-                            Price
-                        </label>
-                        <input
-                            type='number'
-                            name='price'
-                            value={product.price}
-                            onChange={(e) => productChange(e)}
-                            placeholder='Product Price'
-                            className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-                            required
-                        />
+                    <div className='flex items-center  gap-2'>
+                        <div className=' w-4/5'>
+                            <label className='block mb-2 font-medium text-gray-900 dark:text-white text-gray-900 dark:text-gray-400'>
+                                Price
+                            </label>
+                            <input
+                                type='number'
+                                name='price'
+                                value={product.price}
+                                onChange={(e) => productChange(e)}
+                                placeholder='Product Price'
+                                className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                                required
+                            />
+                        </div>
+                         <div>
+                            <label className='block mb-2 font-medium text-gray-900 dark:text-white text-gray-900 dark:text-gray-400'>
+                                Category
+                            </label>
+                            <select name='categories' onChange={(e) => productChange(e)} className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'>
+                                <option value="grapefruit">Grapefruit</option>
+                                <option value="lime">Lime</option>
+                                <option selected value="coconut">Coconut</option>
+                                <option value="mango">Mango</option>
+                            </select>
+                        </div>
                     </div>{' '}
                     <div>
-                        <label class='block mb-2 font-medium text-gray-900 dark:text-white text-gray-900 dark:text-gray-400'>
+                        <label className='block mb-2 font-medium text-gray-900 dark:text-white text-gray-900 dark:text-gray-400'>
                             Description
                         </label>
                         <textarea
@@ -70,8 +84,8 @@ export default function AddProduct() {
                             required
                         />
                     </div>
-                    <div>
-                        <label class='block mb-2 font-medium text-gray-900 dark:text-white'>
+                    <div >
+                        <label className='block mb-2 font-medium text-gray-900 dark:text-white text-gray-900 dark:text-gray-400'>
                             Img url
                         </label>
                         <input
@@ -84,11 +98,13 @@ export default function AddProduct() {
                             required
                         />
                         {product.image && <img
-                            className='w-44 h-44'
+                            className='w-44 h-44 mt-1'
                             src={product.image}
                             alt={product.title}
                         />}
                     </div>
+                  
+                   
                 </div>
 
                 <button  className='focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Green</button>'>
