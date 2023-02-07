@@ -26,7 +26,8 @@ export default function Categories() {
     }, [])
 
     return (
-        <div className='text-center bg-yellow-50  px-2 tracking-category sticky top-0'>
+        <div className='text-center bg-yellow-50  px-2 tracking-category sticky top-0  '>
+           
             <div className='text-md font-medium  my-2'>Categories</div>
             <div
                 className={`${
@@ -38,30 +39,30 @@ export default function Categories() {
             >
                 All
             </div>
-            {cat &&
-                cat.map((c, i) => {
-                    return (
-                        <div
-                            key={i}
-                            onClick={() => {
-                                dispatch(filterByCategories(c.title))
-                                setActiveCat(c.title)
-                            }}
-                        >
-                            <p
-                                className={`${
-                                    activeCat === c.title ? 'bg-yellow-300' : ''
-                                } px-6 border-b py-1 cursor-pointer rounded`}
+            <div className='flex md:flex-col flex-wrap'>
+
+                {cat &&
+                    cat.map((c, i) => {
+                        return (
+                            <div
+                                key={i}
+                                onClick={() => {
+                                    dispatch(filterByCategories(c.title))
+                                    setActiveCat(c.title)
+                                }}
                             >
-                                {c.title}
-                            </p>
-                        </div>
-                    )
+                                <p
+                                    className={`${
+                                        activeCat === c.title ? 'bg-yellow-300' : ''
+                                    } px-6 border-b py-1 cursor-pointer rounded`}
+                                >
+                                    {c.title}
+                                </p>
+                            </div>
+                        )
                 })}
-            {/* <div className=' px-6 border-b py-1'>Furnuter</div>
-            <div className=' px-6 border-b py-1'>Crockery</div>
-            <div className=' px-6 border-b py-1'>Kitchen</div>
-            <div className=' px-6 border-b py-1'>Home</div> */}
+            </div>
+
         </div>
     )
 }

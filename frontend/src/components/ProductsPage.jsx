@@ -17,12 +17,12 @@ export default function ProductsPage() {
     return (
         <div className='min-h-screen '>
             <h1 className='text-xl font-bold mt-5'>Featured</h1>
-            <div className='flex mt-5 gap-2 items-start'>
+            <div className='flex mt-5 gap-2 items-start flex-col md:flex-row'>
                 {/* Product categories */}
                 <Categories />
                 {/* Product list */}
                 {!isLoading ? (
-                    <div className='flex gap-10 flex-wrap m-auto justify-center'>
+                    <div className='flex gap-10 flex-wrap m-auto justify-center '>
                         {/* Loop through products */}
                         {products.map((singleProduct) => {
                             const { _id, title,image, slug, price } = singleProduct
