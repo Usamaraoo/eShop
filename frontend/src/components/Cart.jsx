@@ -28,7 +28,7 @@ export default function Cart() {
         }
     }
     return (
-        <div className='w-4/5 m-auto min-h-screen '>
+        <div className='w-4/5 m-auto min-h-[75vh] '>
 
             {cartItems.length > 0 ? (
                 <div className='border mt-10 shadow-xl p-4  rounded-xl'>
