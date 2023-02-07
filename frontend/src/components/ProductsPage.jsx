@@ -15,12 +15,16 @@ export default function ProductsPage() {
         console.log('render all products')
     }, [])
     return (
-        <div className='min-h-screen '>
-            <h1 className='text-xl font-bold mt-5'>Featured</h1>
-            <div className='flex mt-5 gap-2 items-start flex-col md:flex-row sm:items-start'>
+        <div className='min-h-screen px-4 md:px-0'>
+            <h1 className='text-xl font-bold mt-5 hidden md:block'>Featured</h1>
+            <div className='flex mt-5 gap-2 items-start flex-col md:flex-row items-start '>
                 {/* Product categories */}
                 <Categories />
                 {/* Product list */}
+                <div className='md:hidden   flex justify-center items-center w-full'>
+                    <p className='text-xl font-bold mt-5  '>Featured</p>
+                </div>
+
                 {!isLoading ? (
                     <div className='flex gap-10 flex-wrap m-auto justify-center '>
                         {/* Loop through products */}

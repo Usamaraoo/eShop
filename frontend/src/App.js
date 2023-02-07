@@ -10,7 +10,7 @@ import Footer from './Layouts/Footer'
 
 function App() {
     return (
-        <div className='w-4/5 m-auto  '>
+        <div className='md:w-4/5 m-auto   '>
             <Router>
                 <Nabvar />
                 <Routes>
