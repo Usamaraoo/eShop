@@ -17,7 +17,7 @@ export default function ProductsPage() {
     return (
         <div className='min-h-screen '>
             <h1 className='text-xl font-bold mt-5'>Featured</h1>
-            <div className='flex mt-5 gap-2 items-start flex-col md:flex-row'>
+            <div className='flex mt-5 gap-2 items-start flex-col md:flex-row sm:items-start'>
                 {/* Product categories */}
                 <Categories />
                 {/* Product list */}

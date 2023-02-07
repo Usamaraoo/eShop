@@ -26,7 +26,7 @@ export default function Categories() {
     }, [])
 
     return (
-        <div className='text-center bg-yellow-50  px-2 tracking-category sticky top-0  '>
+        <div className='text-center bg-yellow-50  px-2 tracking-category md:sticky top-0  '>
            
             <div className='text-md font-medium  my-2'>Categories</div>
             <div
