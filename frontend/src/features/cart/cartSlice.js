@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { json } from 'react-router-dom'
 
 // initial state of the slice
-const initialState = {
+const initialState =localStorage.getItem("localCart") === null ? {
     cartItems: [],
     amount: 0,
     total: 0,
     isLoading: true,
-}
+}:JSON.parse(localStorage.getItem("localCart") )
 
 const cartSlice = createSlice({
     name: 'cart',
@@ -43,6 +44,7 @@ const cartSlice = createSlice({
                 state.total += 1
                 state.amount += payload.price
             }
+            localStorage.setItem('localCart', JSON.stringify(state));
         },
         updateItemQuantity: (state, actions) => {
             const { quantity, title } = actions.payload
@@ -57,12 +59,16 @@ const cartSlice = createSlice({
                     }
                 }
             })
+            localStorage.setItem('localCart', JSON.stringify(state));
+
         },
         removeItem: (state, { payload }) => {
             const { slug, price, quantity } = payload
             state.cartItems = state.cartItems.filter((item) => item.slug !== slug)
             state.amount -= price
             state.total -= quantity
+            localStorage.setItem('localCart', JSON.stringify(state));
+        
         },
     },
 })
