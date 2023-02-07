@@ -23,7 +23,8 @@ export default function ProductDetail() {
             }
         }
         getSingleProd()
-    }, [slug])
+
+    }, [slug,currentItem])
     return (
         <div className='mt-20 h-screen'> 
             {currentItem ? (
@@ -63,33 +64,15 @@ export default function ProductDetail() {
                             <p className='font-medium text-xl'>Availability :</p>
                             <span className='text-orange-600'>In stock</span>
                         </div>
-                        {/* add to cart  */}
-                        {/* <div className='mt-5'>
-                            <button
-                                onClick={() =>
-                                    dispatch(
-                                        addItemToCart({
-                                            image: currentItem.image,
-                                            title: currentItem.title,
-                                            slug: currentItem.slug,
-                                            price: currentItem.price,
-                                        })
-                                    )
-                                }
-                                className='bg-yellow-400 px-4 py-1   rounded-md '
-                            >
-                                Add to cart
-                            </button>
-                        </div> */}
-                        {/* Typyes */}
                         <div className='flex gap-2 items-center font-medium mt-2'>
                             <div className='text-xl'>Types :</div>
-                            <button className='text-xs px-3 text-gray-600 py-1 bg-gray-200 rounded-xl'>
-                                Kitchen
-                            </button>
-                            <button className='text-xs px-3 text-gray-600 py-1 bg-gray-200 rounded-xl'>
-                                Furneture
-                            </button>
+                            {currentItem.category.length > 0 && currentItem.category.map((cat)=>{
+                                return(
+                                    <button key={cat} className='text-xs px-3 text-gray-600 py-1 bg-gray-200 rounded-xl'>
+                                        {cat}
+                                    </button>
+                                )
+                            }) }
                         </div>
                     </div>
                 </div>
