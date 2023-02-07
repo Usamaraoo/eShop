@@ -26,16 +26,16 @@ export default function ProductDetail() {
 
     }, [slug,currentItem])
     return (
-        <div className='mt-20 h-screen'> 
+        <div className='md:mt-20 mt-10 min-h-screen'> 
             {currentItem ? (
-                <div className='flex justify-between '>
+                <div className='flex flex-col md:flex-row justify-between items-start  '>
                     <img
                         src={currentItem.image}
                         alt={currentItem.title}
-                        className='max-w-xs w-94 h-94 object-contain'
+                        className='max-w-xs md:w-94 h-94 w-4/5 object-contain md:mt-5 m-auto'
                     />
                     <div className='px-10 py-10 flex-grow border-l'>
-                        <div className='flex justify-between'>
+                        <div className='flex justify-between items-start'>
                             <h1 className='text-3xl font-medium '>{currentItem.title}</h1>
 
                             <button
