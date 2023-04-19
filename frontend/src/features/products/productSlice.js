@@ -19,7 +19,7 @@ export const getProducts = createAsyncThunk(
             // we can dispatch action from other features too
             // thunkAPI.dispatch()
             const res = await axios(
-                `${process.env.REACT_APP_BackendBaseUrl}/api/products`
+                `/api/products`
             )
             return res.data
         } catch (error) {
@@ -33,7 +33,7 @@ export const getCategories = createAsyncThunk(
     async (param1, thunkAPI) => {
         try {
             const res = await axios(
-                `${process.env.REACT_APP_BackendBaseUrl}/api/categories`
+                `/api/categories`
             )
             return res.data
         } catch (error) {
@@ -46,7 +46,7 @@ export const addProduct = createAsyncThunk(
 '/products/add', async (product,thunkAPI)=>{
     try {
          const res = await axios.post(
-            `${process.env.REACT_APP_BackendBaseUrl}/api/products`,
+            `/api/products`,
             { ...product })
         return res.data
 

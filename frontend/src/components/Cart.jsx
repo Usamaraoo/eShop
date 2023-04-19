@@ -13,7 +13,7 @@ export default function Cart() {
     const checkoutFun = async () => {
         try {
             const res = await axios.post(
-                `${process.env.REACT_APP_BackendBaseUrl}/api/payment/create-checkout-session`,
+                `/api/payment/create-checkout-session`,
                 {
                     items: cartItems,
                     quantity: cartItems.map((item) => item.quantity),
