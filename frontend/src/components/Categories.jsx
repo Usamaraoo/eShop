@@ -26,12 +26,12 @@ export default function Categories() {
     }, [])
 
     return (
-        <div className='text-center bg-yellow-50  px-2 tracking-category md:sticky top-0 m-auto md:m-0  '>
+        <div className='text-center bg-yellow-gray  px-2 tracking-category md:sticky top-0 m-auto md:m-0  '>
            
             <div className='text-md font-medium  my-2'>Categories</div>
             <div
                 className={`${
-                    activeCat === 'all' ? 'bg-yellow-300' : ''
+                    activeCat === 'all' ? 'bg-slate-200' : ''
                 } px-6 border-b py-1 cursor-pointer rounded`}
                 onClick={() => {dispatch(filterByCategories('all'))
             setActiveCat('all')
@@ -53,7 +53,7 @@ export default function Categories() {
                             >
                                 <p
                                     className={`${
-                                        activeCat === c.title ? 'bg-yellow-300' : ''
+                                        activeCat === c.title ? 'bg-slate-200' : ''
                                     } px-6 border-b py-1 cursor-pointer rounded`}
                                 >
                                     {c.title}

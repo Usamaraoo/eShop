@@ -24,11 +24,11 @@ export default function ProductDetail() {
         }
         getSingleProd()
 
-    }, [slug,currentItem])
+    }, [slug,])
     return (
-        <div className='md:mt-20 md:mt-5 mt-2 min-h-screen mb-5'> 
+        <div className='md:mt-20 md:mt-5 mt-2 min-h-screen mb-5 '> 
             {currentItem ? (
-                <div className='flex flex-col md:flex-row justify-between items-start  '>
+                <div className={`flex flex-col lg:flex-row justify-between items-start  w-3/4 m-auto shadow-xl`}>
                     <img
                         src={currentItem.image}
                         alt={currentItem.title}
@@ -49,7 +49,7 @@ export default function ProductDetail() {
                                         })
                                     )
                                 }
-                                className='flex justify-between items-center gap-3 bg-yellow-400 px-4 py-1   rounded-md '
+                                className='flex justify-between items-center gap-3 bg-slate-400 px-4 py-1   rounded-md '
                             >
                                 Add
                                 <BsHandbagFill size={12} />
