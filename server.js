@@ -10,7 +10,7 @@ const payment = require('./routes/payment')
 const categories = require('./routes/categories')
 const path = require("path")
 const app = express()
-
+const port =process.env.PORT || 8000
 
 // middleware
 app.use(express.json())
@@ -30,7 +30,7 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }).then(() => 
     app.get("*", (req, res) => {
         res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
     });
-    app.listen(process.env.PORT, () =>
+    app.listen(port, () =>
         console.log(`Server is running on port ${process.env.PORT}`)
     )
 })
