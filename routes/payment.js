@@ -25,8 +25,8 @@ router.post('/create-checkout-session', async (req, res) => {
                     quantity: item.quantity,
                 }
             }),
-            success_url: `http://localhost:3000/`,
-            cancel_url: `http://localhost:3000/`,
+            success_url: `/`,
+            cancel_url: `/`,
         })
         res.json({ url: session.url })
     } catch (e) {
