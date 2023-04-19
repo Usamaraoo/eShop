@@ -21,7 +21,7 @@ export default function Cart() {
             )
             if (res.status === 200) {
                 window.location = res.data.url
-                // console.log(res.data.url)
+                dispatch(clearCart())
             }
         } catch (error) {
             console.log(error.message)

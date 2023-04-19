@@ -17,6 +17,7 @@ const cartSlice = createSlice({
             state.total = 0
             state.amount = 0
             state.cartItems = []
+            localStorage.removeItem('localCart');
         },
         addItemToCart: (state, { payload }) => {
             let add = true

@@ -6,7 +6,7 @@ import { addItemToCart } from '../features/cart/cartSlice'
 export default function SingleProductCard({ image, price, title, slug }) {
     const dispatch = useDispatch()
     return (
-        <div className='md:w-52 md:h-70 w-4/5  bg-yellow-50  rounded hover:shadow-xl overflow-hidden '>
+        <div className='md:w-52 md:h-70 w-4/5  bg-gray-50  rounded hover:shadow-xl overflow-hidden '>
             <Link to={`/${slug}`}>
                 <img
                     to={`/${slug}`}
@@ -25,7 +25,7 @@ export default function SingleProductCard({ image, price, title, slug }) {
                         onClick={() =>
                             dispatch(addItemToCart({ image, price, title, slug }))
                         }
-                        className='bg-yellow-400 px-4 py-1 text-sm rounded-md text-md'
+                        className='bg-slate-400 text-white px-4 py-1 text-sm rounded-md text-md'
                     >
                         To Cart
                     </button>
