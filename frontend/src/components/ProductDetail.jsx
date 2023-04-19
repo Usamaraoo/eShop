@@ -16,7 +16,7 @@ export default function ProductDetail() {
     useEffect(() => {
         const getSingleProd = async () => {
             const res = await axios.get(
-                `${process.env.REACT_APP_BackendBaseUrl}/api/products/${slug}`
+                `/api/products/${slug}`
             )
             if (res.status === 200) {
                 setCurrentItem(res.data)

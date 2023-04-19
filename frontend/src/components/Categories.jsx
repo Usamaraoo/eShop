@@ -13,7 +13,7 @@ export default function Categories() {
         const getCat = async () => {
             try {
                 const res = await axios.get(
-                    `${process.env.REACT_APP_BackendBaseUrl}/api/categories`
+                    `/api/categories`
                 )
                 if (res.status === 200) {
                     setCat(res.data)
